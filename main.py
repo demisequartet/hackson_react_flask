@@ -50,7 +50,8 @@ def login():
     password = request.form['password']
 
     if dbaccess.login(user, password):
-        return jsonify({'result': 'success'})
+        num = dbaccess.get_user_number(user)
+        return jsonify({'result': 'success', 'user_number': num})
     else:
         return jsonify({'result': 'failed'})
 

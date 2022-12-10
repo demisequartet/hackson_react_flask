@@ -60,6 +60,17 @@ def login(id, password):
         return True
 
 
+def get_user_number(user_id):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT user_number FROM userinfo WHERE user_id = %s", (user_id,))
+
+    (num,) = cur.fetchone()
+
+    return num
+
+
 def select_user():
     conn = get_connection()
     cur = conn.cursor()
@@ -95,6 +106,7 @@ def get_ranking():
 
     return res
 
+
 def record_ranking(user_number, iscorrect):
     conn = get_connection()
     cur = conn.cursor()
@@ -103,8 +115,11 @@ def record_ranking(user_number, iscorrect):
     conn.commit()
     conn.close()
 
+
 if __name__ == "__main__":
     # get_users_number()
     # select_user()
-    res = get_ranking()
-    print(res)
+    # res = get_ranking()
+    # print(res)
+
+    print(get_user_number('admin'))
