@@ -1,0 +1,16 @@
+# docker-compose build
+# docker-compose up -d
+# http://localhost:21337/top.html
+# http://localhost:21337/db
+# docker-compose down
+
+version: '3'
+
+services:
+  cnpg:
+    build:
+      context: db
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: 'trust'
+    ports:
+      - "25432:5432"
