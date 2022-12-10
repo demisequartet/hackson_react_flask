@@ -1,8 +1,7 @@
 # docker-compose build
 # docker-compose up -d
-# http://localhost:21337/top.html
-# http://localhost:21337/db
-# docker-compose down
+# http://localhost:21345
+# にアクセスしてHello Worldが出れば正常動作
 
 version: '3'
 
