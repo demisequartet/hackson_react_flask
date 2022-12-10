@@ -2,7 +2,8 @@ import psycopg2
 from psycopg2.extras import DictCursor
 import itertools
 
-DATABASE_URL = "postgresql://postgres:Password@localhost:25432/postgres"
+# DATABASE_URL = "postgresql://postgres:Password@localhost:25432/postgres"
+DATABASE_URL = "postgresql://postgres:Password@db-container:5432/postgres"
 
 
 def get_connection():

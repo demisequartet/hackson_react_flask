@@ -7,10 +7,17 @@
 version: '3'
 
 services:
-  cnpg:
+  db-container:
     build:
       context: db
     environment:
       POSTGRES_HOST_AUTH_METHOD: 'trust'
     ports:
       - "25432:5432"
+
+  flask-container:
+    build:
+      context: .
+      dockerfile: ./api/Dockerfile
+    ports:
+      - "21345:5000"
