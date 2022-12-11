@@ -34,7 +34,7 @@ def get_users_number():
 def create_user(id, password, handleName):
     conn = get_connection()
     cur = conn.cursor()
-    cur.execute("INSERT INTO userinfo(user_id,handleName,password) VALUES (%s, %s, %s) RETURNING user_number",
+    cur.execute("INSERT INTO userinfo(user_id,password,handleName) VALUES (%s, %s, %s) RETURNING user_number",
                 (id, password, handleName))
 
     conn.commit()
