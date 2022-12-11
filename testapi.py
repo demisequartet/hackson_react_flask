@@ -1,9 +1,11 @@
 import requests
 import random
 
+URL = "http://localhost:21345/"
+
 
 def login():
-    url = 'http://localhost:5000/login'
+    url = f'{URL}login'
     data = {'user': 'admin', 'password': 'admin'}
     # data = {'user': 'admin', 'password': 'adminnnnn'}
 
@@ -15,7 +17,7 @@ def login():
 
 
 def post2():
-    url = 'http://localhost:5000/createUser'
+    url = f'{URL}login'
     data = {'user': 'admin2', 'password': 'adminn', 'handleName': 'admin'}
 
     r = requests.post(url, data=data)
@@ -23,10 +25,17 @@ def post2():
 
 
 def recordRanking():
-    url = 'http://localhost:5000/recordRankingInfo'
+    url = f'{URL}recordRankingInfo'
     data = {'user_number': '1', 'iscorrect': random.random() > 0.5}
 
     r = requests.post(url, data=data)
+    print(r.text)
+
+
+def logout():
+    url = f'{URL}logout'
+
+    r = requests.get(url)
     print(r.text)
 
 
@@ -36,3 +45,5 @@ if __name__ == '__main__':
     #     recordRanking()
 
     login()
+
+    logout()

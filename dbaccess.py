@@ -72,6 +72,17 @@ def get_user_number(user_id):
     return num
 
 
+def get_user_handleName(user_id):
+    conn = get_connection()
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT handleName FROM userinfo WHERE user_id = %s", (user_id,))
+
+    (handleName,) = cur.fetchone()
+
+    return handleName
+
+
 def select_user():
     conn = get_connection()
     cur = conn.cursor()
